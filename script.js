@@ -1,3 +1,9 @@
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const caixaResultado = document.querySelector(".texto-resultado");
+
 const perguntas = [
     {
         enunciado: "Quais são os principais impactos da poluição marinha na vida marinha?",
@@ -26,3 +32,14 @@ const perguntas = [
         
     },
 ];
+
+mostraAlternativas ();
+}
+function mostraAlternativas(){
+    for(const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.testContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas)
+    }
+}
+mostraPergunta()
