@@ -38,8 +38,13 @@ let perguntaAtual;
 let historiaFinal="";
 
 function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return
+    }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
     mostraAlternativas ();
 }
 
@@ -52,12 +57,10 @@ function mostraAlternativas(){
     }
 }
 
-function respostaSelecionada(opcaoSelecionada){
+function respostaSelecionada(opcaoSelecionada) {
     const afirmacoes = opcaoSelecionada.afirmacoes;
     historiaFinal = afirmacoes;
     atual++;
     mostraPergunta();
 }
     
-
-mostraPergunta();
